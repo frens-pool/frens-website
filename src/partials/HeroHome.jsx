@@ -53,7 +53,7 @@ function HeroHome() {
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
-                    Try FRENS App
+                    Pool with FRENS
                   </a>
                 </div>
                 <div>
