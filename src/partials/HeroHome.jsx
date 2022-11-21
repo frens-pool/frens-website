@@ -61,7 +61,7 @@ function HeroHome() {
                     className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" 
                     onClick={openWaitlistPopup}
                   >
-                    Waitlist Signup
+                    Mainnet Waitlist Signup
                   </button>
                 </div>
               </div>
