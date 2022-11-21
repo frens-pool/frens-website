@@ -53,7 +53,7 @@ function HeroHome() {
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
-                    Pool with FRENS
+                    Pool with FRENS (goerli)
                   </a>
                 </div>
                 <div>
