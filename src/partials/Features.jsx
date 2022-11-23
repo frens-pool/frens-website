@@ -70,7 +70,7 @@ function Features() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1">Tradable NFTs as staking derivatives</div>
-                    <div className="text-gray-600">Our contracts define the rules and prohibit foul play. The contributors to the pool each get an NFT that proves their contribution.</div>
+                    <div className="text-gray-600">Our contracts define the rules and prohibit foul play. Pool stakers get a tradable NFT that represent their contribution.</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
