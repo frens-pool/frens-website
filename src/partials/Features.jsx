@@ -28,7 +28,7 @@ function Features() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-6 md:pb-10">
-            <h1 className="h2 mb-4">Your non-custodial pool</h1>
+            <h1 className="h2 mb-4">Your staking pool</h1>
             <p className="text-xl text-gray-600">Create a secure and decentralized staking pool for you and your friends.</p>
           </div>
 
