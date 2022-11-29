@@ -49,7 +49,7 @@ function HeroHome() {
                 <div>
                   <a 
                     className="btn text-white bg-gradient-to-r from-blue-500 to-teal-400 w-full mb-4 sm:w-auto sm:mb-0" 
-                    href="https://app.frens.fun/operator"
+                    href="https://app.frens.fun/pool"
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
