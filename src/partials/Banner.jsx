@@ -13,7 +13,7 @@ function Banner() {
            <span className="inline md:hidden">checkout </span>
             <span className="hidden md:inline">We are on a mission! Checkout </span>
             <a 
-              className="btn-link text-white underline text-white" 
+              className="btn-link text-white underline bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400" 
               href="https://hackmd.io/gSw730vuRQyP0-zFeVxJAw"
               target="_blank" 
               rel="noopener noreferrer"
