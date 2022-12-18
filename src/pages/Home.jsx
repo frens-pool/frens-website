@@ -28,7 +28,7 @@ function Home() {
 
       </main>
 
-      {/* <Banner /> */}
+      <Banner />
 
       {/*  Site footer */}
       <Footer />
