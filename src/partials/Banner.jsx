@@ -7,7 +7,7 @@ function Banner() {
   return (
     <>
     { bannerOpen && (
-      <div className="mx-auto w-3/4 md:w-7/12 xl:w-5/12 fixed inset-x-0 bottom-4 z-60">
+      <div className="mx-auto w-3/4 md:w-7/12 xl:w-5/12 fixed inset-x-0 bottom-1 md:bottom-4 z-60">
         <div className="bg-gray-900 text-slate-50 text-sm p-3 rounded shadow-lg flex justify-between">
           <div className='w-full text-center font-medium text-base text-gray-200'>
            <span className="inline md:hidden">checkout </span>
