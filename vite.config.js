@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import postcss from "./postcss.config.js";
 import react from "@vitejs/plugin-react";
-import ViteRadar from "vite-plugin-radar";
+import path from "path";
+import { partytownVite } from "@builder.io/partytown/utils";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,11 +14,8 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    ViteRadar({
-      // Google Analytics tag injection
-      analytics: {
-        id: "G-S29T9K203B",
-      },
+    partytownVite({
+      dest: path.join(__dirname, "dist", "~partytown"),
     }),
   ],
   resolve: {
