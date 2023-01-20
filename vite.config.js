@@ -14,8 +14,11 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    partytownVite({
-      dest: path.join(__dirname, "dist", "~partytown"),
+    ViteRadar({
+      // Google Analytics tag injection
+      analytics: {
+        id: "G-S29T9K203B",
+      },
     }),
   ],
   resolve: {
