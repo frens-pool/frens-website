@@ -51,7 +51,7 @@ function Header() {
             <ul className="flex flex-grow justify-end flex-wrap items-center">
               <li>
                 <a
-                  href="https://discord.gg/q8wxHBax"
+                  href="https://discord.gg/yx53KwrvRS"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
