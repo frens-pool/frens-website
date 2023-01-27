@@ -36,7 +36,7 @@ module.exports = {
           800: "#285E61",
           900: "#234E52",
         },
-        "frens-main": "#3F19EE",
+        "frens-main": "#4554EA",
         "frens-blue": "#3F19EE",
         "frens-teal": "#54DAE0",
       },
