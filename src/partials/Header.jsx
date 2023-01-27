@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../images/frens-writing.png";
+import Logo from "../images/FRENS.png";
 
 function Header() {
   const [top, setTop] = useState(true);
@@ -41,7 +41,7 @@ function Header() {
                 src={Logo}
                 width="120"
                 height="40"
-                alt="Logo"
+                alt="FRENS Pool"
               />
             </Link>
           </div>
