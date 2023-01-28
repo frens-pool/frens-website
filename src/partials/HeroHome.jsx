@@ -67,8 +67,8 @@ function HeroHome() {
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                Staking pools for peer-to-peer staking on trusted node operators
-                (friends)
+                Staking pool as a service protocol to stake on trusted node
+                operators
               </p>
               <div
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
