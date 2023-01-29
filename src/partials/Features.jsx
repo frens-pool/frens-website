@@ -32,8 +32,7 @@ function Features() {
           <div className="max-w-3xl mx-auto text-center pb-6 md:pb-10">
             <h1 className="h2 mb-4">Personal staking pools</h1>
             <p className="text-xl text-gray-600">
-              Create a secure and decentralized staking pool for you and your
-              friends.
+              Create your non-custodial staking pool for you and your friends.
             </p>
           </div>
 
