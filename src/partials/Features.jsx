@@ -58,7 +58,7 @@ function Features() {
                     </div>
                     <div className="text-gray-600">
                       Run your node and welcome stakes from friends so they
-                      don't need to delegate to an anonymous entitiy.
+                      don't need to delegate to an anonymous entity.
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-12 h-12 bg-white rounded-full shadow flex-shrink-0 ml-3">
