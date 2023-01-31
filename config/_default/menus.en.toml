@@ -1,0 +1,68 @@
+# -- Main Menu --
+# The main menu is displayed in the header at the top of the page.
+# Acceptable parameters are name, pageRef, page, url, title, weight.
+#
+# The simplest menu configuration is to provide:
+#   name = The name to be displayed for this menu link
+#   pageRef = The identifier of the page or section to link to
+#
+# By default the menu is ordered alphabetically. This can be
+# overridden by providing a weight value. The menu will then be
+# ordered by weight from lowest to highest.
+
+[[main]]
+  name = "Manifesto"
+  pageRef = "manifesto"
+  weight = 5
+
+[[main]]
+  name = "Docs"
+  pageRef = "docs"
+  weight = 10
+
+[[main]]
+  name = "Samples"
+  pageRef = "samples"
+  weight = 20
+
+[[main]]
+  name = "Twitter"
+  url = "https://twitter.com/frens-pool"
+  weight = 40
+  [main.params]
+    icon = "twitter"
+    showName = false
+    target = "_blank"
+
+[[main]]
+  name = "Discord"
+  url = "https://discord.gg/yx53KwrvRS"
+  weight = 45
+  [main.params]
+    icon = "discord"
+    showName = false
+    target = "_blank"
+
+[[main]]
+  name = "GitHub"
+  url = "https://github.com/frens-pool"
+  weight = 50
+  [main.params]
+    icon = "github"
+    showName = false
+    target = "_blank"
+
+[[main]]
+  identifier = "search"
+  weight = 99
+  [main.params]
+    action = "search"
+
+# -- Footer Menu --
+# The footer menu is displayed at the bottom of the page, just before
+# the copyright notice. Configure as per the main menu above.
+
+# [[footer]]
+#   name = "Tags"
+#   pageRef = "tags"
+#   weight = 10
