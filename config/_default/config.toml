@@ -9,5 +9,6 @@ enableRobotsTXT = true
 paginate = 15
 summaryLength = 0
 
+staticDir = ['static', 'book']
 [outputs]
   home = ["HTML", "RSS", "JSON"]

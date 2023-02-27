@@ -21,8 +21,8 @@
   weight = 10
 
 [[main]]
-  name = "Samples"
-  pageRef = "samples"
+  name = "Contracts"
+  pageRef = "contracts"
   weight = 20
 
 [[main]]

@@ -1,0 +1,715 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="book.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">contracts</li><li class="chapter-item "><a href="contracts/interfaces/index.html">❱ interfaces</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="contracts/interfaces/IDepositContract.sol/contract.IDepositContract.html">IDepositContract</a></li><li class="chapter-item "><a href="contracts/interfaces/IFrensPoolShare.sol/contract.IFrensPoolShare.html">IFrensPoolShare</a></li><li class="chapter-item "><a href="contracts/interfaces/ISSVRegistry.sol/contract.ISSVRegistry.html">ISSVRegistry</a></li><li class="chapter-item "><a href="contracts/interfaces/IStakingPool.sol/contract.IStakingPool.html">IStakingPool</a></li><li class="chapter-item "><a href="contracts/interfaces/IStakingPoolFactory.sol/contract.IStakingPoolFactory.html">IStakingPoolFactory</a></li></ol></li><li class="chapter-item "><a href="contracts/FrensPoolShare.sol/contract.FrensPoolShare.html">FrensPoolShare</a></li><li class="chapter-item "><a href="contracts/StakingPool.sol/contract.StakingPool.html">StakingPool</a></li><li class="chapter-item "><a href="contracts/StakingPoolFactory.sol/contract.StakingPoolFactory.html">StakingPoolFactory</a></li><li class="chapter-item "><a href="contracts/ToColor.sol/contract.ToColor.html">ToColor</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/frens-pool/frens-contracts" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <div style="break-before: page; page-break-before: always;"></div><h1 id="contents"><a class="header" href="#contents">Contents</a></h1>
+<ul>
+<li><a href="contracts/interfaces/IDepositContract.sol/contract.IDepositContract.html">IDepositContract</a></li>
+<li><a href="contracts/interfaces/IFrensPoolShare.sol/contract.IFrensPoolShare.html">IFrensPoolShare</a></li>
+<li><a href="contracts/interfaces/ISSVRegistry.sol/contract.ISSVRegistry.html">ISSVRegistry</a></li>
+<li><a href="contracts/interfaces/IStakingPool.sol/contract.IStakingPool.html">IStakingPool</a></li>
+<li><a href="contracts/interfaces/IStakingPoolFactory.sol/contract.IStakingPoolFactory.html">IStakingPoolFactory</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="idepositcontract"><a class="header" href="#idepositcontract">IDepositContract</a></h1>
+<p><a href="https://github.com/frens-pool/frens-contracts/blob/aed3f2fdd202e634d250e1760a4b5f09a992085f/contracts/interfaces/IDepositContract.sol">Git Source</a></p>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="deposit"><a class="header" href="#deposit">deposit</a></h3>
+<pre><code class="language-solidity">function deposit(
+    bytes calldata pubkey,
+    bytes calldata withdrawal_credentials,
+    bytes calldata signature,
+    bytes32 deposit_data_root
+) external payable;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ifrenspoolshare"><a class="header" href="#ifrenspoolshare">IFrensPoolShare</a></h1>
+<p><a href="https://github.com/frens-pool/frens-contracts/blob/aed3f2fdd202e634d250e1760a4b5f09a992085f/contracts/interfaces/IFrensPoolShare.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+IERC721Enumerable</p>
+<h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
+<h3 id="incrementtokenid"><a class="header" href="#incrementtokenid">incrementTokenId</a></h3>
+<pre><code class="language-solidity">function incrementTokenId() external returns (uint256);
+</code></pre>
+<h3 id="mint"><a class="header" href="#mint">mint</a></h3>
+<pre><code class="language-solidity">function mint(address userAddress, uint256 id, address _pool) external;
+</code></pre>
+<h3 id="exists"><a class="header" href="#exists">exists</a></h3>
+<pre><code class="language-solidity">function exists(uint256 _id) external returns (bool);
+</code></pre>
+<h3 id="getpoolbyid"><a class="header" href="#getpoolbyid">getPoolById</a></h3>
+<pre><code class="language-solidity">function getPoolById(uint256 _id) external view returns (address);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="issvregistry"><a class="header" href="#issvregistry">ISSVRegistry</a></h1>
+<p><a href="https://github.com/frens-pool/frens-contracts/blob/aed3f2fdd202e634d250e1760a4b5f09a992085f/contracts/interfaces/ISSVRegistry.sol">Git Source</a></p>
+<h2 id="functions-2"><a class="header" href="#functions-2">Functions</a></h2>
+<h3 id="initialize"><a class="header" href="#initialize">initialize</a></h3>
+<p><em>Initializes the contract</em></p>
+<pre><code class="language-solidity">function initialize() external;
+</code></pre>
+<h3 id="registeroperator"><a class="header" href="#registeroperator">registerOperator</a></h3>
+<p><em>Registers a new operator.</em></p>
+<pre><code class="language-solidity">function registerOperator(string calldata name, address ownerAddress, bytes calldata publicKey, uint64 fee)
+    external
+    returns (uint32);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>name</code></td><td><code>string</code></td><td>Operator's display name.</td></tr>
+<tr><td><code>ownerAddress</code></td><td><code>address</code></td><td>Operator's ethereum address that can collect fees.</td></tr>
+<tr><td><code>publicKey</code></td><td><code>bytes</code></td><td>Operator's public key. Will be used to encrypt secret shares of validators keys.</td></tr>
+<tr><td><code>fee</code></td><td><code>uint64</code></td><td>The fee which the operator charges for each block.</td></tr>
+</tbody></table>
+</div>
+<h3 id="removeoperator"><a class="header" href="#removeoperator">removeOperator</a></h3>
+<p><em>removes an operator.</em></p>
+<pre><code class="language-solidity">function removeOperator(uint32 operatorId) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>operatorId</code></td><td><code>uint32</code></td><td>Operator id.</td></tr>
+</tbody></table>
+</div>
+<h3 id="updateoperatorfee"><a class="header" href="#updateoperatorfee">updateOperatorFee</a></h3>
+<p><em>Updates an operator fee.</em></p>
+<pre><code class="language-solidity">function updateOperatorFee(uint32 operatorId, uint64 fee) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>operatorId</code></td><td><code>uint32</code></td><td>Operator id.</td></tr>
+<tr><td><code>fee</code></td><td><code>uint64</code></td><td>New operator fee.</td></tr>
+</tbody></table>
+</div>
+<h3 id="updateoperatorscore"><a class="header" href="#updateoperatorscore">updateOperatorScore</a></h3>
+<p><em>Updates an operator fee.</em></p>
+<pre><code class="language-solidity">function updateOperatorScore(uint32 operatorId, uint32 score) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>operatorId</code></td><td><code>uint32</code></td><td>Operator id.</td></tr>
+<tr><td><code>score</code></td><td><code>uint32</code></td><td>New score.</td></tr>
+</tbody></table>
+</div>
+<h3 id="registervalidator"><a class="header" href="#registervalidator">registerValidator</a></h3>
+<p><em>Registers a new validator.</em></p>
+<pre><code class="language-solidity">function registerValidator(
+    address ownerAddress,
+    bytes calldata publicKey,
+    uint32[] calldata operatorIds,
+    bytes[] calldata sharesPublicKeys,
+    bytes[] calldata sharesEncrypted
+) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>ownerAddress</code></td><td><code>address</code></td><td>The user's ethereum address that is the owner of the validator.</td></tr>
+<tr><td><code>publicKey</code></td><td><code>bytes</code></td><td>Validator public key.</td></tr>
+<tr><td><code>operatorIds</code></td><td><code>uint32[]</code></td><td>Operator ids.</td></tr>
+<tr><td><code>sharesPublicKeys</code></td><td><code>bytes[]</code></td><td>Shares public keys.</td></tr>
+<tr><td><code>sharesEncrypted</code></td><td><code>bytes[]</code></td><td>Encrypted private keys.</td></tr>
+</tbody></table>
+</div>
+<h3 id="removevalidator"><a class="header" href="#removevalidator">removeValidator</a></h3>
+<p><em>removes a validator.</em></p>
+<pre><code class="language-solidity">function removeValidator(bytes calldata publicKey) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>publicKey</code></td><td><code>bytes</code></td><td>Validator's public key.</td></tr>
+</tbody></table>
+</div>
+<h3 id="enableownervalidators"><a class="header" href="#enableownervalidators">enableOwnerValidators</a></h3>
+<pre><code class="language-solidity">function enableOwnerValidators(address ownerAddress) external;
+</code></pre>
+<h3 id="disableownervalidators"><a class="header" href="#disableownervalidators">disableOwnerValidators</a></h3>
+<pre><code class="language-solidity">function disableOwnerValidators(address ownerAddress) external;
+</code></pre>
+<h3 id="isliquidated"><a class="header" href="#isliquidated">isLiquidated</a></h3>
+<pre><code class="language-solidity">function isLiquidated(address ownerAddress) external view returns (bool);
+</code></pre>
+<h3 id="getoperatorbyid"><a class="header" href="#getoperatorbyid">getOperatorById</a></h3>
+<p><em>Gets an operator by operator id.</em></p>
+<pre><code class="language-solidity">function getOperatorById(uint32 operatorId)
+    external
+    view
+    returns (string memory, address, bytes memory, uint256, uint256, uint256, bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>operatorId</code></td><td><code>uint32</code></td><td>Operator id.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getoperatorsbyowneraddress"><a class="header" href="#getoperatorsbyowneraddress">getOperatorsByOwnerAddress</a></h3>
+<p><em>Returns operators for owner.</em></p>
+<pre><code class="language-solidity">function getOperatorsByOwnerAddress(address ownerAddress) external view returns (uint32[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>ownerAddress</code></td><td><code>address</code></td><td>Owner's address.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getoperatorsbyvalidator"><a class="header" href="#getoperatorsbyvalidator">getOperatorsByValidator</a></h3>
+<p><em>Gets operators list which are in use by validator.</em></p>
+<pre><code class="language-solidity">function getOperatorsByValidator(bytes calldata validatorPublicKey) external view returns (uint32[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>validatorPublicKey</code></td><td><code>bytes</code></td><td>Validator's public key.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getoperatorowner"><a class="header" href="#getoperatorowner">getOperatorOwner</a></h3>
+<p><em>Gets operator's owner.</em></p>
+<pre><code class="language-solidity">function getOperatorOwner(uint32 operatorId) external view returns (address);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>operatorId</code></td><td><code>uint32</code></td><td>Operator id.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getoperatorfee"><a class="header" href="#getoperatorfee">getOperatorFee</a></h3>
+<p><em>Gets operator current fee.</em></p>
+<pre><code class="language-solidity">function getOperatorFee(uint32 operatorId) external view returns (uint64);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>operatorId</code></td><td><code>uint32</code></td><td>Operator id.</td></tr>
+</tbody></table>
+</div>
+<h3 id="activevalidatorcount"><a class="header" href="#activevalidatorcount">activeValidatorCount</a></h3>
+<p><em>Gets active validator count.</em></p>
+<pre><code class="language-solidity">function activeValidatorCount() external view returns (uint32);
+</code></pre>
+<h3 id="validators"><a class="header" href="#validators">validators</a></h3>
+<p><em>Gets an validator by public key.</em></p>
+<pre><code class="language-solidity">function validators(bytes calldata publicKey) external view returns (address, bytes memory, bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>publicKey</code></td><td><code>bytes</code></td><td>Validator's public key.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getvalidatorsbyaddress"><a class="header" href="#getvalidatorsbyaddress">getValidatorsByAddress</a></h3>
+<p><em>Gets a validator public keys by owner's address.</em></p>
+<pre><code class="language-solidity">function getValidatorsByAddress(address ownerAddress) external view returns (bytes[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>ownerAddress</code></td><td><code>address</code></td><td>Owner's Address.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getvalidatorowner"><a class="header" href="#getvalidatorowner">getValidatorOwner</a></h3>
+<p><em>Get validator's owner.</em></p>
+<pre><code class="language-solidity">function getValidatorOwner(bytes calldata publicKey) external view returns (address);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>publicKey</code></td><td><code>bytes</code></td><td>Validator's public key.</td></tr>
+</tbody></table>
+</div>
+<h3 id="validatorsperoperatorcount"><a class="header" href="#validatorsperoperatorcount">validatorsPerOperatorCount</a></h3>
+<p><em>Get validators amount per operator.</em></p>
+<pre><code class="language-solidity">function validatorsPerOperatorCount(uint32 operatorId) external view returns (uint32);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>operatorId</code></td><td><code>uint32</code></td><td>Operator public key</td></tr>
+</tbody></table>
+</div>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
+<h3 id="exceedregisteredoperatorsbyaccountlimit"><a class="header" href="#exceedregisteredoperatorsbyaccountlimit">ExceedRegisteredOperatorsByAccountLimit</a></h3>
+<p>errors</p>
+<pre><code class="language-solidity">error ExceedRegisteredOperatorsByAccountLimit();
+</code></pre>
+<h3 id="operatordeleted"><a class="header" href="#operatordeleted">OperatorDeleted</a></h3>
+<pre><code class="language-solidity">error OperatorDeleted();
+</code></pre>
+<h3 id="validatoralreadyexists"><a class="header" href="#validatoralreadyexists">ValidatorAlreadyExists</a></h3>
+<pre><code class="language-solidity">error ValidatorAlreadyExists();
+</code></pre>
+<h3 id="exceedvalidatorlimit"><a class="header" href="#exceedvalidatorlimit">ExceedValidatorLimit</a></h3>
+<pre><code class="language-solidity">error ExceedValidatorLimit();
+</code></pre>
+<h3 id="operatornotfound"><a class="header" href="#operatornotfound">OperatorNotFound</a></h3>
+<pre><code class="language-solidity">error OperatorNotFound();
+</code></pre>
+<h3 id="invalidpublickeylength"><a class="header" href="#invalidpublickeylength">InvalidPublicKeyLength</a></h3>
+<pre><code class="language-solidity">error InvalidPublicKeyLength();
+</code></pre>
+<h3 id="oessdatastructureinvalid"><a class="header" href="#oessdatastructureinvalid">OessDataStructureInvalid</a></h3>
+<pre><code class="language-solidity">error OessDataStructureInvalid();
+</code></pre>
+<h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
+<h3 id="oess"><a class="header" href="#oess">Oess</a></h3>
+<pre><code class="language-solidity">struct Oess {
+    uint32 operatorId;
+    bytes sharedPublicKey;
+    bytes encryptedKey;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="istakingpool"><a class="header" href="#istakingpool">IStakingPool</a></h1>
+<p><a href="https://github.com/frens-pool/frens-contracts/blob/aed3f2fdd202e634d250e1760a4b5f09a992085f/contracts/interfaces/IStakingPool.sol">Git Source</a></p>
+<h2 id="functions-3"><a class="header" href="#functions-3">Functions</a></h2>
+<h3 id="deposit-1"><a class="header" href="#deposit-1">deposit</a></h3>
+<pre><code class="language-solidity">function deposit(address userAddress) external payable;
+</code></pre>
+<h3 id="addtodeposit"><a class="header" href="#addtodeposit">addToDeposit</a></h3>
+<pre><code class="language-solidity">function addToDeposit(uint256 _id) external payable;
+</code></pre>
+<h3 id="withdraw"><a class="header" href="#withdraw">withdraw</a></h3>
+<pre><code class="language-solidity">function withdraw(uint256 _id, uint256 _amount) external;
+</code></pre>
+<h3 id="distribute"><a class="header" href="#distribute">distribute</a></h3>
+<pre><code class="language-solidity">function distribute() external;
+</code></pre>
+<h3 id="getshare"><a class="header" href="#getshare">getShare</a></h3>
+<pre><code class="language-solidity">function getShare(uint256 _id) external view returns (uint256);
+</code></pre>
+<h3 id="getdistributableshare"><a class="header" href="#getdistributableshare">getDistributableShare</a></h3>
+<pre><code class="language-solidity">function getDistributableShare(uint256 _id) external view returns (uint256);
+</code></pre>
+<h3 id="getpubkey"><a class="header" href="#getpubkey">getPubKey</a></h3>
+<pre><code class="language-solidity">function getPubKey() external view returns (bytes memory);
+</code></pre>
+<h3 id="getstate"><a class="header" href="#getstate">getState</a></h3>
+<pre><code class="language-solidity">function getState() external view returns (string memory);
+</code></pre>
+<h3 id="getdepositamount"><a class="header" href="#getdepositamount">getDepositAmount</a></h3>
+<pre><code class="language-solidity">function getDepositAmount(uint256 _id) external view returns (uint256);
+</code></pre>
+<h3 id="stake"><a class="header" href="#stake">stake</a></h3>
+<pre><code class="language-solidity">function stake(
+    bytes calldata pubkey,
+    bytes calldata withdrawal_credentials,
+    bytes calldata signature,
+    bytes32 deposit_data_root
+) external;
+</code></pre>
+<h3 id="unstake"><a class="header" href="#unstake">unstake</a></h3>
+<pre><code class="language-solidity">function unstake() external;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="istakingpoolfactory"><a class="header" href="#istakingpoolfactory">IStakingPoolFactory</a></h1>
+<p><a href="https://github.com/frens-pool/frens-contracts/blob/aed3f2fdd202e634d250e1760a4b5f09a992085f/contracts/interfaces/IStakingPoolFactory.sol">Git Source</a></p>
+<h2 id="functions-4"><a class="header" href="#functions-4">Functions</a></h2>
+<h3 id="doesstakingpoolexist"><a class="header" href="#doesstakingpoolexist">doesStakingPoolExist</a></h3>
+<pre><code class="language-solidity">function doesStakingPoolExist(address stakingPoolAddress) external view returns (bool);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="frenspoolshare"><a class="header" href="#frenspoolshare">FrensPoolShare</a></h1>
+<p><a href="https://github.com/frens-pool/frens-contracts/blob/aed3f2fdd202e634d250e1760a4b5f09a992085f/contracts/FrensPoolShare.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+ERC721Enumerable, Ownable</p>
+<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
+<h3 id="_tokenid"><a class="header" href="#_tokenid">_tokenId</a></h3>
+<pre><code class="language-solidity">uint256 private _tokenId;
+</code></pre>
+<h3 id="poolbyid"><a class="header" href="#poolbyid">poolById</a></h3>
+<pre><code class="language-solidity">mapping(uint256 =&gt; address) poolById;
+</code></pre>
+<h3 id="factorycontract"><a class="header" href="#factorycontract">factoryContract</a></h3>
+<pre><code class="language-solidity">IStakingPoolFactory factoryContract;
+</code></pre>
+<h3 id="ssvregistry"><a class="header" href="#ssvregistry">ssvRegistry</a></h3>
+<pre><code class="language-solidity">ISSVRegistry ssvRegistry;
+</code></pre>
+<h2 id="functions-5"><a class="header" href="#functions-5">Functions</a></h2>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<pre><code class="language-solidity">constructor(address factoryAddress_, address ssvRegistryAddress_) ERC721(&quot;staking con amigos&quot;, &quot;FRENS&quot;);
+</code></pre>
+<h3 id="onlystakingpools"><a class="header" href="#onlystakingpools">onlyStakingPools</a></h3>
+<pre><code class="language-solidity">modifier onlyStakingPools(address _stakingPoolAddress);
+</code></pre>
+<h3 id="incrementtokenid-1"><a class="header" href="#incrementtokenid-1">incrementTokenId</a></h3>
+<pre><code class="language-solidity">function incrementTokenId() public onlyStakingPools(msg.sender) returns (uint256);
+</code></pre>
+<h3 id="mint-1"><a class="header" href="#mint-1">mint</a></h3>
+<pre><code class="language-solidity">function mint(address userAddress, uint256 id, address _pool) public onlyStakingPools(msg.sender);
+</code></pre>
+<h3 id="exists-1"><a class="header" href="#exists-1">exists</a></h3>
+<pre><code class="language-solidity">function exists(uint256 _id) public view returns (bool);
+</code></pre>
+<h3 id="getpoolbyid-1"><a class="header" href="#getpoolbyid-1">getPoolById</a></h3>
+<pre><code class="language-solidity">function getPoolById(uint256 _id) public view returns (address);
+</code></pre>
+<h3 id="tokenuri"><a class="header" href="#tokenuri">tokenURI</a></h3>
+<pre><code class="language-solidity">function tokenURI(uint256 id) public view override returns (string memory);
+</code></pre>
+<h3 id="generatesvgoftokenbyid"><a class="header" href="#generatesvgoftokenbyid">generateSVGofTokenById</a></h3>
+<pre><code class="language-solidity">function generateSVGofTokenById(uint256 id) internal view returns (string memory);
+</code></pre>
+<h3 id="getcolor"><a class="header" href="#getcolor">getColor</a></h3>
+<pre><code class="language-solidity">function getColor(address a) internal pure returns (string memory);
+</code></pre>
+<h3 id="rendertokenbyid"><a class="header" href="#rendertokenbyid">renderTokenById</a></h3>
+<pre><code class="language-solidity">function renderTokenById(uint256 id) public view returns (string memory);
+</code></pre>
+<h3 id="getethdecimalstring"><a class="header" href="#getethdecimalstring">getEthDecimalString</a></h3>
+<pre><code class="language-solidity">function getEthDecimalString(uint256 amountInWei) public pure returns (string memory);
+</code></pre>
+<h3 id="getoperatorsforpool"><a class="header" href="#getoperatorsforpool">getOperatorsForPool</a></h3>
+<pre><code class="language-solidity">function getOperatorsForPool(address poolAddress) public view returns (uint32[] memory, string memory);
+</code></pre>
+<h3 id="itohex"><a class="header" href="#itohex">iToHex</a></h3>
+<pre><code class="language-solidity">function iToHex(bytes memory buffer) public pure returns (string memory);
+</code></pre>
+<h3 id="uint2str"><a class="header" href="#uint2str">uint2str</a></h3>
+<pre><code class="language-solidity">function uint2str(uint256 _i) internal pure returns (string memory _uintAsString);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="stakingpool"><a class="header" href="#stakingpool">StakingPool</a></h1>
+<p><a href="https://github.com/frens-pool/frens-contracts/blob/aed3f2fdd202e634d250e1760a4b5f09a992085f/contracts/StakingPool.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+Ownable</p>
+<h2 id="state-variables-1"><a class="header" href="#state-variables-1">State Variables</a></h2>
+<h3 id="depositamount"><a class="header" href="#depositamount">depositAmount</a></h3>
+<pre><code class="language-solidity">mapping(uint256 =&gt; uint256) public depositAmount;
+</code></pre>
+<h3 id="totaldeposits"><a class="header" href="#totaldeposits">totalDeposits</a></h3>
+<pre><code class="language-solidity">uint256 public totalDeposits;
+</code></pre>
+<h3 id="idsinthispool"><a class="header" href="#idsinthispool">idsInThisPool</a></h3>
+<pre><code class="language-solidity">uint256[] public idsInThisPool;
+</code></pre>
+<h3 id="currentstate"><a class="header" href="#currentstate">currentState</a></h3>
+<pre><code class="language-solidity">State currentState;
+</code></pre>
+<h3 id="depositcontractaddress"><a class="header" href="#depositcontractaddress">depositContractAddress</a></h3>
+<pre><code class="language-solidity">address public depositContractAddress;
+</code></pre>
+<h3 id="validatorpubkey"><a class="header" href="#validatorpubkey">validatorPubKey</a></h3>
+<pre><code class="language-solidity">bytes public validatorPubKey;
+</code></pre>
+<h3 id="depositcontract"><a class="header" href="#depositcontract">depositContract</a></h3>
+<pre><code class="language-solidity">IDepositContract depositContract;
+</code></pre>
+<h3 id="factorycontract-1"><a class="header" href="#factorycontract-1">factoryContract</a></h3>
+<pre><code class="language-solidity">IStakingPoolFactory factoryContract;
+</code></pre>
+<h3 id="frenspoolshare-1"><a class="header" href="#frenspoolshare-1">frensPoolShare</a></h3>
+<pre><code class="language-solidity">IFrensPoolShare frensPoolShare;
+</code></pre>
+<h2 id="functions-6"><a class="header" href="#functions-6">Functions</a></h2>
+<h3 id="constructor-1"><a class="header" href="#constructor-1">constructor</a></h3>
+<pre><code class="language-solidity">constructor(address depositContractAddress_, address factory_, address frensPoolShareAddress_, address owner_);
+</code></pre>
+<h3 id="deposittopool"><a class="header" href="#deposittopool">depositToPool</a></h3>
+<pre><code class="language-solidity">function depositToPool() public payable;
+</code></pre>
+<h3 id="addtodeposit-1"><a class="header" href="#addtodeposit-1">addToDeposit</a></h3>
+<pre><code class="language-solidity">function addToDeposit(uint256 _id) public payable;
+</code></pre>
+<h3 id="withdraw-1"><a class="header" href="#withdraw-1">withdraw</a></h3>
+<pre><code class="language-solidity">function withdraw(uint256 _id, uint256 _amount) public;
+</code></pre>
+<h3 id="distribute-1"><a class="header" href="#distribute-1">distribute</a></h3>
+<pre><code class="language-solidity">function distribute() public;
+</code></pre>
+<h3 id="_getshare"><a class="header" href="#_getshare">_getShare</a></h3>
+<pre><code class="language-solidity">function _getShare(uint256 _id, uint256 _contractBalance) internal view returns (uint256);
+</code></pre>
+<h3 id="getshare-1"><a class="header" href="#getshare-1">getShare</a></h3>
+<pre><code class="language-solidity">function getShare(uint256 _id) public view returns (uint256);
+</code></pre>
+<h3 id="getdistributableshare-1"><a class="header" href="#getdistributableshare-1">getDistributableShare</a></h3>
+<pre><code class="language-solidity">function getDistributableShare(uint256 _id) public view returns (uint256);
+</code></pre>
+<h3 id="getpubkey-1"><a class="header" href="#getpubkey-1">getPubKey</a></h3>
+<pre><code class="language-solidity">function getPubKey() public view returns (bytes memory);
+</code></pre>
+<h3 id="setpubkey"><a class="header" href="#setpubkey">setPubKey</a></h3>
+<pre><code class="language-solidity">function setPubKey(bytes memory publicKey) public onlyOwner;
+</code></pre>
+<h3 id="getstate-1"><a class="header" href="#getstate-1">getState</a></h3>
+<pre><code class="language-solidity">function getState() public view returns (string memory);
+</code></pre>
+<h3 id="getdepositamount-1"><a class="header" href="#getdepositamount-1">getDepositAmount</a></h3>
+<pre><code class="language-solidity">function getDepositAmount(uint256 _id) public view returns (uint256);
+</code></pre>
+<h3 id="stake-1"><a class="header" href="#stake-1">stake</a></h3>
+<pre><code class="language-solidity">function stake(
+    bytes calldata pubkey,
+    bytes calldata withdrawal_credentials,
+    bytes calldata signature,
+    bytes32 deposit_data_root
+) public onlyOwner;
+</code></pre>
+<h3 id="_towithdrawalcred"><a class="header" href="#_towithdrawalcred">_toWithdrawalCred</a></h3>
+<pre><code class="language-solidity">function _toWithdrawalCred(address a) private pure returns (bytes memory);
+</code></pre>
+<h3 id="rugpull"><a class="header" href="#rugpull">rugpull</a></h3>
+<pre><code class="language-solidity">function rugpull() public onlyOwner;
+</code></pre>
+<h3 id="setfrenspoolshare"><a class="header" href="#setfrenspoolshare">setFrensPoolShare</a></h3>
+<pre><code class="language-solidity">function setFrensPoolShare(address frensPoolShareAddress_) public onlyOwner;
+</code></pre>
+<h3 id="unstake-1"><a class="header" href="#unstake-1">unstake</a></h3>
+<pre><code class="language-solidity">function unstake() public;
+</code></pre>
+<h3 id="receive"><a class="header" href="#receive">receive</a></h3>
+<pre><code class="language-solidity">receive() external payable;
+</code></pre>
+<h3 id="fallback"><a class="header" href="#fallback">fallback</a></h3>
+<pre><code class="language-solidity">fallback() external payable;
+</code></pre>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
+<h3 id="stake-2"><a class="header" href="#stake-2">Stake</a></h3>
+<pre><code class="language-solidity">event Stake(address depositContractAddress, address caller);
+</code></pre>
+<h3 id="deposittopool-1"><a class="header" href="#deposittopool-1">DepositToPool</a></h3>
+<pre><code class="language-solidity">event DepositToPool(uint256 amount, address depositer);
+</code></pre>
+<h2 id="enums"><a class="header" href="#enums">Enums</a></h2>
+<h3 id="state"><a class="header" href="#state">State</a></h3>
+<pre><code class="language-solidity">enum State {
+    acceptingDeposits,
+    staked,
+    exited
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="stakingpoolfactory"><a class="header" href="#stakingpoolfactory">StakingPoolFactory</a></h1>
+<p><a href="https://github.com/frens-pool/frens-contracts/blob/aed3f2fdd202e634d250e1760a4b5f09a992085f/contracts/StakingPoolFactory.sol">Git Source</a></p>
+<p><strong>Inherits:</strong>
+Ownable</p>
+<h2 id="state-variables-2"><a class="header" href="#state-variables-2">State Variables</a></h2>
+<h3 id="existsstakingpool"><a class="header" href="#existsstakingpool">existsStakingPool</a></h3>
+<pre><code class="language-solidity">mapping(address =&gt; bool) existsStakingPool;
+</code></pre>
+<h3 id="lastcontract"><a class="header" href="#lastcontract">lastContract</a></h3>
+<pre><code class="language-solidity">address public lastContract;
+</code></pre>
+<h3 id="depositcontractaddress-1"><a class="header" href="#depositcontractaddress-1">depositContractAddress</a></h3>
+<pre><code class="language-solidity">address depositContractAddress;
+</code></pre>
+<h3 id="ssvregistryaddress"><a class="header" href="#ssvregistryaddress">ssvRegistryAddress</a></h3>
+<pre><code class="language-solidity">address ssvRegistryAddress;
+</code></pre>
+<h3 id="frenspoolshareaddress"><a class="header" href="#frenspoolshareaddress">frensPoolShareAddress</a></h3>
+<pre><code class="language-solidity">address frensPoolShareAddress;
+</code></pre>
+<h2 id="functions-7"><a class="header" href="#functions-7">Functions</a></h2>
+<h3 id="constructor-2"><a class="header" href="#constructor-2">constructor</a></h3>
+<pre><code class="language-solidity">constructor(address depContAddress_, address ssvRegistryAddress_);
+</code></pre>
+<h3 id="setfrenspoolshare-1"><a class="header" href="#setfrenspoolshare-1">setFrensPoolShare</a></h3>
+<pre><code class="language-solidity">function setFrensPoolShare(address frensPoolShareAddress_) public onlyOwner;
+</code></pre>
+<h3 id="create"><a class="header" href="#create">create</a></h3>
+<pre><code class="language-solidity">function create(address owner_) public returns (address);
+</code></pre>
+<h3 id="doesstakingpoolexist-1"><a class="header" href="#doesstakingpoolexist-1">doesStakingPoolExist</a></h3>
+<pre><code class="language-solidity">function doesStakingPoolExist(address _stakingPoolAddress) public view returns (bool);
+</code></pre>
+<h2 id="events-1"><a class="header" href="#events-1">Events</a></h2>
+<h3 id="create-1"><a class="header" href="#create-1">Create</a></h3>
+<pre><code class="language-solidity">event Create(address indexed contractAddress, address creator, address owner, address depositContractAddress);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tocolor"><a class="header" href="#tocolor">ToColor</a></h1>
+<p><a href="https://github.com/frens-pool/frens-contracts/blob/aed3f2fdd202e634d250e1760a4b5f09a992085f/contracts/ToColor.sol">Git Source</a></p>
+<h2 id="state-variables-3"><a class="header" href="#state-variables-3">State Variables</a></h2>
+<h3 id="alphabet"><a class="header" href="#alphabet">ALPHABET</a></h3>
+<pre><code class="language-solidity">bytes16 internal constant ALPHABET = &quot;0123456789abcdef&quot;;
+</code></pre>
+<h2 id="functions-8"><a class="header" href="#functions-8">Functions</a></h2>
+<h3 id="tocolor-1"><a class="header" href="#tocolor-1">toColor</a></h3>
+<pre><code class="language-solidity">function toColor(bytes3 value) internal pure returns (string memory);
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="solidity.min.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
