@@ -114,12 +114,24 @@ module.exports = {
       },
       animation: {
         float: "float 3s ease-in-out infinite",
+        slowturn: "slowturn 120s linear infinite",
+        sway: "sway 7.5s linear infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-5%)" },
         },
+        slowturn: {
+          '0%%': { transform: 'rotate(0deg)' },
+          '50%': { transform: 'rotate(180deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+
+        },
+        sway: {
+          '0%, 100%': { backgroundSize: '100% 115vh' },
+          '50%': { backgroundSize: '100% 200vh' },
+        }
       },
       zIndex: {
         "-1": "-1",

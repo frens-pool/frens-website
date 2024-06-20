@@ -5,6 +5,7 @@ import Discord from "../images/discord-mark-white.png";
 import Github from "../images/github-mark-white.png";
 import X from "../images/logo-white.png";
 
+
 function Header() {
   const location = useLocation().pathname;
   // const [thisisHome,setThisisHome] = useState();
@@ -13,17 +14,15 @@ function Header() {
     <>
     {location === "/"?
     <header
-      className="absolute w-full">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      className="absolute w-full  px-3 py-5">
           {/* Site navigation */}
-          <nav className="flex flex-grow">
-            <ul className="flex flex-grow justify-end flex-wrap items-center">
-              <li>
+          <nav className="w-full">
+            <div className="flex flex-row justify-end items-center">
                 <a
                   href="https://discord.gg/yx53KwrvRS"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block"
+                  className="block"
                 >
                   <img
                     src={Discord}
@@ -31,13 +30,12 @@ function Header() {
                     alt="Discord logo"
                   />
                 </a>
-              </li>
-              <li>
+
                 <a
                   href="https://x.com/frensPool"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mx-[10px]"
+                  className="block mx-[10px]"
                 >
                   <img
                     src={X}
@@ -45,13 +43,12 @@ function Header() {
                     alt="Github logo"
                   />
                 </a>
-              </li>
-              <li>
+
                 <a
                   href="https://github.com/frens-pool"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block"
+                  className="block"
                 >
                   <img
                     src={Github}
@@ -59,20 +56,17 @@ function Header() {
                     alt="Github logo"
                   />
                 </a>
-              </li>
-              <li>
+
                 <a
-                  href="https://github.com/frens-pool"
+                  href="https://app.frens.fun"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block"
+                  className="py-2 px-4 rounded-[24px] text-white bg-transparent border-[2px] border-white ml-4 font-bold"
                 >
-                  
+                  <span>visit app</span>
                 </a>
-              </li>
-            </ul>
+            </div>
           </nav>
-        </div>
     </header>
     :
     <header
