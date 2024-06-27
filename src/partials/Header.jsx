@@ -14,7 +14,7 @@ function Header() {
     <>
     {location === "/"?
     <header
-      className="absolute w-full  px-3 py-5">
+      className="absolute w-full  px-3 py-5 hidden lg:absolute">
           {/* Site navigation */}
           <nav className="w-full">
             <div className="flex flex-row justify-end items-center">

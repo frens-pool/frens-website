@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Transition from '../utils/Transition';
 
@@ -7,10 +7,12 @@ function Modal({
   id,
   ariaLabel,
   show,
-  handleClose
+  handleClose,
+  width
 }) {
 
   const modalContent = useRef(null);
+  const [modalClass, setModalClass] = useState('bg-white overflow-auto w-full max-h-full');
 
   // close the modal on click outside
   useEffect(() => {
@@ -32,6 +34,13 @@ function Modal({
 
     return () => document.removeEventListener('keydown', keyHandler);
   });  
+
+  useEffect(() => {
+    console.log("width",width);
+    if(width){
+      setModalClass('bg-white overflow-auto w-full max-h-full '+width);
+    }
+  },[width]); 
 
   return (
     <>
@@ -63,7 +72,7 @@ function Modal({
         leaveStart="opacity-100 scale-100"
         leaveEnd="opacity-0 scale-95"
       >
-        <div className="bg-white overflow-auto max-w-6xl w-full max-h-full" ref={modalContent}>          
+        <div className={modalClass} ref={modalContent}>          
           {children}
         </div>
       </Transition>    
