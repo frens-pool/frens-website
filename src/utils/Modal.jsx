@@ -46,7 +46,7 @@ function Modal({
     <>
       {/* Modal backdrop */}
       <Transition
-        className="fixed inset-0 z-50 bg-white bg-opacity-75 transition-opacity backdrop-blur-sm"
+        className="fixed inset-0 z-50 bg-black bg-opacity-50 transition-opacity backdrop-blur-sm"
         show={show}
         enter="transition ease-out duration-200"
         enterStart="opacity-0"

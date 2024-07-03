@@ -25,8 +25,8 @@ export const FeaturesItem = ({
     },[itemTitle]);
 
     return (
-        <div className="w-full flex flex-col lg:flex-row items-start lg:items-end justify-start mt-8">
-            <h1 className="font-bold text-[36px] leading-[40px] w-full max-w-[340px] lg:max-w-[312px] mr-6 lg:mr-8 mb-4 lg:mb-0">{itemTitle}</h1>
+        <div className="w-full flex flex-col lg:flex-row items-start justify-start mt-8">
+            <h1 className="font-bold text-[36px] leading-[40px] w-full max-w-[340px] lg:max-w-[312px] lg:mt-[6px] mr-6 lg:mr-8 mb-4 lg:mb-0">{itemTitle}</h1>
             <div className="flex-1 flex flex-row items-end justify-start pt-1 pb-4 pr-8 lg:pr-12 border-b-[0.5px] border-dashed border-[#3F19EE]">
                 <div className="w-full flex flex-col items-start justify-start transition-all">
                     <p className={specialPClass}><span className="font-extrabold">{itemHighlight} </span>{ItemDescr}</p>

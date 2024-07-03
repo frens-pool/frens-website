@@ -9,7 +9,7 @@ import X from "../images/logo-white.png";
 function Footer() {
   return (
     <footer className="w-full pt-16 px-12 lg:px-12 pb-24 flex flex-col lg:flex-row items-start lg:items-center justify-start bg-gradient-to-l from-[#54DAE0] from-0% via-[#3F19EE] to-[#4551ea] to-100%">
-      <div className="flex-1 flex flex-row items-start justify-center ml-0 lg:ml-8 mb-4 lg:mb-0">
+      <div className="flex-1 flex flex-row items-start justify-center lg:justify-start ml-0 lg:ml-8 mb-4 lg:mb-0">
         <img
           src={Logowhite}
           alt="Discord logo"
@@ -17,15 +17,15 @@ function Footer() {
         />
         <p className="text-[20px] italic text-white lg:mt-3 ml-8 lg:ml-12">Friendly<br /> Riskless<br /> Ethereum<br /> Non-custodial<br /> Staking</p>
       </div>
-      <div className="flex flex-col items-start lg:items-end justify-start lg:justify-center lg:ml-8">
+      <div className="w-full flex flex-col items-start lg:items-end justify-start lg:justify-center lg:ml-8">
         <img
             src={writing}
             width="230"
             alt="Github logo"
             className="mt-4"
           />
-          <nav className="w-full mt-6">
-            <div className="flex flex-row justify-start lg:justify-end items-center">
+          <nav className="w-full mt-10 lg:mt-6">
+            <div className="flex flex-row-reverse lg:flex-row justify-end items-center block">
                 <a
                   href="https://discord.gg/yx53KwrvRS"
                   target="_blank"
@@ -43,7 +43,7 @@ function Footer() {
                   href="https://x.com/frensPool"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block mx-[10px]"
+                  className="block mx-4 lg:mx-[10px]"
                 >
                   <img
                     src={X}
@@ -69,7 +69,7 @@ function Footer() {
                   href="https://app.frens.fun"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2 px-4 rounded-[24px] text-white bg-transparent border-[2px] border-white ml-4 font-bold"
+                  className="py-2 px-4 rounded-[24px] text-white bg-transparent border-[2px] border-white mr-6 lg:mr-0 lg:ml-4 font-bold"
                 >
                   <span>visit app</span>
                 </a>
