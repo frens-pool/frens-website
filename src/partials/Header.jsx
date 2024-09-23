@@ -1,79 +1,165 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../images/FRENS.png";
+import Discord from "../images/discord-mark-white.png";
+import Github from "../images/github-mark-white.png";
+import X from "../images/logo-white.png";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Collapse } from "@material-tailwind/react";
+
 
 function Header() {
-  const [top, setTop] = useState(true);
-
-  // detect whether user has scrolled the page down by 10px
-  useEffect(() => {
-    const scrollHandler = () => {
-      window.pageYOffset > 10 ? setTop(false) : setTop(true);
-    };
-    window.addEventListener("scroll", scrollHandler);
-    return () => window.removeEventListener("scroll", scrollHandler);
-  }, [top]);
+  const location = useLocation().pathname;
+  const [menuOpen,setMenuOpen] = useState();
 
   return (
+    <>    
+    {location === "/"?
+    <>
     <header
-      className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${
-        !top && "bg-white backdrop-blur-sm shadow-lg"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Site branding */}
-          <div className="flex-shrink-0 mr-4">
-            {/* Logo */}
-            <Link to="/" className="block" aria-label="FRENS">
-              {/* <svg className="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient cx="21.152%" cy="86.063%" fx="21.152%" fy="86.063%" r="79.941%" id="header-logo">
-                    <stop stopColor="#4FD1C5" offset="0%" />
-                    <stop stopColor="#81E6D9" offset="25.871%" />
-                    <stop stopColor="#338CF5" offset="100%" />
-                  </radialGradient>
-                </defs>
-                <rect width="32" height="32" rx="16" fill="url(#header-logo)" fillRule="nonzero" />
-              </svg> */}
-              <img
-                className="mx-auto"
-                src={Logo}
-                width="120"
-                height="40"
-                alt="FRENS Pool"
-              />
-            </Link>
-          </div>
-
-          {/* Site navigation */}
-          <nav className="flex flex-grow">
-            <ul className="flex flex-grow justify-end flex-wrap items-center">
-              <li>
+    className={menuOpen?"transition-all fixed w-full px-3 py-5 lg:hidden block top-0 bg-black flex flex-col items-end justify-end z-50":"transition-all fixed w-full px-3 py-5 lg:hidden block top-0 bg-transparent flex flex-col items-end justify-end z-50"}>
+      {menuOpen?
+      <XMarkIcon
+        className="block h-8 w-8 cursor-pointer text-white"
+        aria-hidden="true"
+        onClick={() => setMenuOpen(!menuOpen)}
+      />
+      :
+      <Bars3Icon
+      className="block h-8 w-8 cursor-pointer text-[#FFF8B8]"
+      aria-hidden="true"
+      onClick={() => setMenuOpen(!menuOpen)}
+    />
+      }
+      
+        <Collapse open={menuOpen}>
+        <div className="flex flex-col justify-end items-center pt-8 pb-12">
+                <a
+                  href="https://app.frens.fun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-[50%] text-center py-2 px-4 rounded-[24px] text-white bg-transparent border-[2px] border-white ml-4 font-bold mb-6"
+                >
+                  <span>visit app</span>
+                </a>
                 <a
                   href="https://discord.gg/yx53KwrvRS"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
+                  className="w-[50%] block text-white flex flex-row items-center justify-center my-2"
                 >
-                  <span>Join Discord</span>
-                  <svg
-                    className="w-3 h-3 fill-current text-gray-400 flex-shrink-0 ml-2 -mr-1"
-                    viewBox="0 0 12 12"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z"
-                      fillRule="nonzero"
-                    />
-                  </svg>
+                  <span className="mr-3">FRENS on Discord</span>
+                  <img
+                    src={Discord}
+                    width="25px"
+                    alt="Discord logo"
+                  /> 
                 </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
+
+                <a
+                  href="https://x.com/frensPool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-[50%] block text-white flex flex-row items-center justify-center my-2"
+                >
+                  <span className="mr-3">FRENS on X</span>
+                  <img
+                    src={X}
+                    width="16"
+                    alt="Github logo"
+                  />
+                </a>
+
+                <a
+                  href="https://github.com/frens-pool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-[50%] block text-white flex flex-row items-center justify-center my-2"
+                >
+                  <span className="mr-3">FRENS on Github</span>
+                  <img
+                    src={Github}
+                    width="20"
+                    alt="Github logo"
+                  />
+                </a>
+
+
+            </div>
+        </Collapse>
     </header>
+    <header
+      className="absolute w-full  px-3 py-5 hidden lg:block lg:absolute">
+
+          {/* Site navigation */}
+          <nav className="w-full">
+            <div className="flex flex-row justify-end items-center">
+                <a
+                  href="https://discord.gg/yx53KwrvRS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <img
+                    src={Discord}
+                    width="25"
+                    alt="Discord logo"
+                  />
+                </a>
+
+                <a
+                  href="https://x.com/frensPool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mx-[10px]"
+                >
+                  <img
+                    src={X}
+                    width="20"
+                    alt="Github logo"
+                  />
+                </a>
+
+                <a
+                  href="https://github.com/frens-pool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <img
+                    src={Github}
+                    width="20"
+                    alt="Github logo"
+                  />
+                </a>
+
+                <a
+                  href="https://app.frens.fun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2 px-4 rounded-[24px] text-white bg-transparent border-[2px] border-white ml-4 font-bold"
+                >
+                  <span>visit app</span>
+                </a>
+            </div>
+          </nav>
+    </header>
+    </>
+    :
+    <header
+    className="fixed w-full">
+        <Link to="/" className="block" aria-label="FRENS">
+        <img
+          className="mx-auto"
+          src={Logo}
+          width="120"
+          height="40"
+          alt="FRENS Pool"
+        />
+      </Link>
+    </header>
+    }
+    </>
   );
 }
 

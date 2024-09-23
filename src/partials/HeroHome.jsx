@@ -1,239 +1,92 @@
 import React, { useState } from "react";
-import waitlist from "@zootools/waitlist-js";
+import writing from "../images/frens-writing_white.png";
 import Modal from "../utils/Modal";
+import Biglogo from "../images/frens_logo_big.png";
+import waitlist from "@zootools/waitlist-js";
 
-import HeroImage from "../images/bogota-demo.jpeg";
 
 function HeroHome() {
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
-
+  const [quickModalOpen, setQuickModalOpen] = useState(false);
   const openWaitlistPopup = (event) => {
     event.preventDefault();
 
     // Pass your waitlist ID
     waitlist.openPopup("EBdAbtzncuue0bk3X4Ta");
   };
-
   return (
-    <section className="relative">
-      {/* Illustration behind hero content */}
-      <div
-        className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none"
-        aria-hidden="true"
-      >
-        <svg
-          width="1360"
-          height="578"
-          viewBox="0 0 1360 578"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient
-              x1="50%"
-              y1="0%"
-              x2="50%"
-              y2="100%"
-              id="illustration-01"
-            >
-              <stop stopColor="#FFF" offset="0%" />
-              <stop stopColor="#EAEAEA" offset="77.402%" />
-              <stop stopColor="#DFDFDF" offset="100%" />
-            </linearGradient>
-          </defs>
-          <g fill="url(#illustration-01)" fillRule="evenodd">
-            <circle cx="1232" cy="128" r="128" />
-            <circle cx="155" cy="443" r="64" />
-          </g>
-        </svg>
-      </div>
+    <div className="w-full flex flex-col items-start justify-start bg-gradient-to-b from-[#54DAE0] from-0% via-[#3F19EE] to-[#4551ea] to-100% animate-sway">
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Hero content */}
-        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
-          {/* Section header */}
-          <div className="text-center pb-12 md:pb-16">
-            <h1
-              className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
-              data-aos="zoom-y-out"
-            >
-              Stake with{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-frens-blue to-frens-teal">
-                friends
-              </span>
-            </h1>
-            <div className="max-w-3xl mx-auto">
-              <p
-                className="text-xl text-gray-600 mb-8"
-                data-aos="zoom-y-out"
-                data-aos-delay="150"
-              >
-                Spin up your own pool in one click
-              </p>
-              <div
-                className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
-                data-aos="zoom-y-out"
-                data-aos-delay="300"
-              >
-                <div>
-                  <a
-                    className="btn rounded-lg text-white bg-gradient-to-r from-frens-blue to-frens-teal w-full mb-4 sm:w-auto sm:mb-0"
-                    href="https://app.frens.fun"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Pool with FRENS (goerli)
-                  </a>
-                </div>
-                <div>
-                  <button
-                    className="btn rounded-lg text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4"
-                    onClick={openWaitlistPopup}
-                  >
-                    Mainnet Waitlist Signup
-                  </button>
-                </div>
-              </div>
+      <div className="w-full flex flex-col lg:flex-row items-center justify-center lg:justify-start pt-8 pb-2 px-6 lg:py-12 lg:pl-12 ">
+        <div className="w-full flex flex-1 flex-col items-start justify-start">
+          <h1 className="uppercase font-extrabold bg-gradient-to-b from-[#FFF8B8] to-[#FFFFFF] inline-block text-transparent bg-clip-text text-[72px] leading-[62px] lg:text-[108px] lg:leading-[90px] xl:text-[138px] xl:leading-[115px]">Every<span className="display lg:hidden"><br/></span>thing*<br/> is better<br/> with</h1>
+          <img
+            src={writing}
+            alt="Github logo"
+            className="mt-2 lg:mt-4 w-[260px] lg:w-[460px] xl:w-[560px]"
+          />
+          <p className="font-extrabold text-[20px] lg:text-[26px] xl:text-[30px] text-[#FFF8B8] mt-4 lg:mt-8">* Especially staking ETH!</p>
+        </div>
+        <div className="lg:w-[456px] xl:w-[508px] absolute hidden lg:block top-20 right-0 overflow-hidden">
+          <div className="lg:w-[460px] xl:w-[528px]">
+          <img
+              src={Biglogo}
+              alt="Big logo frens and baseline"
+              className="animate-slowturn lg:w-[460px] xl:w-[528px]"
+            />
             </div>
-          </div>
-
-          {/* Hero image */}
-          <div>
-            <div
-              className="relative flex justify-center mb-8"
-              data-aos="zoom-y-out"
-              data-aos-delay="450"
-            >
-              <div className="flex flex-col justify-center">
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setVideoModalOpen(true);
-                  }}
-                  aria-controls="modal"
-                >
-                  <img
-                    className="mx-auto"
-                    src={HeroImage}
-                    width="768"
-                    height="432"
-                    alt="Hero"
-                  />
-                  <svg
-                    className="absolute inset-0 max-w-full mx-auto md:max-w-none h-auto"
-                    width="768"
-                    height="432"
-                    viewBox="0 0 768 432"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                  >
-                    <defs>
-                      <linearGradient
-                        x1="50%"
-                        y1="0%"
-                        x2="50%"
-                        y2="100%"
-                        id="hero-ill-a"
-                      >
-                        <stop stopColor="#FFF" offset="0%" />
-                        <stop stopColor="#EAEAEA" offset="77.402%" />
-                        <stop stopColor="#DFDFDF" offset="100%" />
-                      </linearGradient>
-                      <linearGradient
-                        x1="50%"
-                        y1="0%"
-                        x2="50%"
-                        y2="99.24%"
-                        id="hero-ill-b"
-                      >
-                        <stop stopColor="#FFF" offset="0%" />
-                        <stop stopColor="#EAEAEA" offset="48.57%" />
-                        <stop
-                          stopColor="#DFDFDF"
-                          stopOpacity="0"
-                          offset="100%"
-                        />
-                      </linearGradient>
-                      <radialGradient
-                        cx="21.152%"
-                        cy="86.063%"
-                        fx="21.152%"
-                        fy="86.063%"
-                        r="79.941%"
-                        id="hero-ill-e"
-                      >
-                        <stop stopColor="#54DAE0" offset="0%" />
-                        <stop stopColor="#54DAE0" offset="25.871%" />
-                        <stop stopColor="#3F19EE" offset="100%" />
-                      </radialGradient>
-                      <circle id="hero-ill-d" cx="384" cy="216" r="64" />
-                    </defs>
-                    <g fill="none" fillRule="evenodd">
-                      <circle
-                        fillOpacity=".04"
-                        fill="url(#hero-ill-a)"
-                        cx="384"
-                        cy="216"
-                        r="128"
-                      />
-                      <circle
-                        fillOpacity=".16"
-                        fill="url(#hero-ill-b)"
-                        cx="384"
-                        cy="216"
-                        r="96"
-                      />
-                      <g fillRule="nonzero">
-                        <use fill="#000" xlinkHref="#hero-ill-d" />
-                        <use fill="url(#hero-ill-e)" xlinkHref="#hero-ill-d" />
-                      </g>
-                    </g>
-                  </svg>
-                </button>
-              </div>
-              <button
-                className="absolute top-full flex items-center transform -translate-y-1/2 bg-gradient-to-r from-frens-blue to-frens-teal rounded-full font-medium group p-4 shadow-lg"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setVideoModalOpen(true);
+        </div>
+        <img
+              src={Biglogo}
+              alt="Big logo frens and baseline"
+              className="animate-slowturn display lg:hidden w-full max-w-[305px] my-10"
+            />
+      </div>
+      <div className="w-full flex flex-col items-center justify-center pb-[90px] lg:pb-[110px]">
+        <a
+          href="https://app.frens.fun"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="z-10"
+        >
+         <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setQuickModalOpen(true);
                 }}
                 aria-controls="modal"
-              >
-                <svg
-                  className="w-6 h-6 fill-current text-white group-hover:text-white flex-shrink-0"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0 2C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12z" />
-                  <path d="M10 17l6-5-6-5z" />
-                </svg>
-                <span className="ml-3 text-white">
-                  Watch us at ethBogota (5 min)
-                </span>
-              </button>
-            </div>
-
-            {/* Modal */}
-            <Modal
-              id="modal"
-              ariaLabel="modal-headline"
-              show={videoModalOpen}
-              handleClose={() => setVideoModalOpen(false)}
-            >
-              <div className="relative pb-9/16">
-                <iframe
-                  className="absolute w-full h-full"
-                  src="https://www.youtube.com/embed/ceTEZGGXCRo"
-                  title="Video"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </Modal>
-          </div>
-        </div>
+          className="py-5 lg:py-6 px-10 lg:px-12 rounded-full text-[#3F19EE] bg-white font-bold text-[20px] leading-[20px] lg:text-[20px] lg:leading-[24px] xl:text-[20px] xl:leading-[24px]">Stake ETH with frens! 🤙</button>
+        </a>
+        <div className="w-full border-[0.5px] border-dashed border-[#6BECF2] -mt-[28px] z-0"></div>
       </div>
-    </section>
+      <Modal
+            id="modal"
+            ariaLabel="modal-headline"
+            show={quickModalOpen}
+            handleClose={() => setQuickModalOpen(false)}
+            width="max-w-2xl"
+        >
+            <div className="flex flex-col items-center justify-center py-20 px-8 text-center">
+              <p className="font-bold text-[24px] leading-[28px]">Jumping right in? Awesome!</p>
+              <p className="font-bold text-[18px] text-[#3B53EF] mb-10">What d'you wanna do?</p>
+              <button
+                  className="w-full max-w-[480px] py-4 px-10 rounded-full text-[20px] text-white bg-gradient-to-l from-[#54DAE0] from-0% via-[#3F19EE] to-[#4551ea] to-100% mx-1 font-bold mb-2"
+                  onClick={openWaitlistPopup}
+              >
+                Signup for Mainnet Waitlist 
+              </button>
+              <a
+                  href="https://app.frens.fun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full max-w-[480px] py-4 px-10 rounded-full text-[20px] text-[#3B53EF] bg-white border-[1px] border-[#3B53EF] mx-1 font-bold mb-2"
+              >
+                  <span>Run testpool on Holesky</span>
+              </a>
+              <p className=" mt-4">...or <a className="underline" href="https://docs.frens.fun/docs/manifesto" target="_blank" rel="noopener noreferrer">read the docs</a> to get your feet wet 🏄!</p>
+            </div>
+      </Modal>
+    </div>
   );
 }
 
