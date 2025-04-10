@@ -69,19 +69,19 @@ function HeroHome() {
             <div className="flex flex-col items-center justify-center py-20 px-8 text-center">
               <p className="font-bold text-[24px] leading-[28px]">Jumping right in? Awesome!</p>
               <p className="font-bold text-[18px] text-[#3B53EF] mb-10">What d'you wanna do?</p>
-              <button
+              {/* <button
                   className="w-full max-w-[480px] py-4 px-10 rounded-full text-[20px] text-white bg-gradient-to-l from-[#54DAE0] from-0% via-[#3F19EE] to-[#4551ea] to-100% mx-1 font-bold mb-2"
                   onClick={openWaitlistPopup}
               >
                 Signup for Mainnet Waitlist 
-              </button>
+              </button> */}
               <a
                   href="https://app.frens.fun"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full max-w-[480px] py-4 px-10 rounded-full text-[20px] text-[#3B53EF] bg-white border-[1px] border-[#3B53EF] mx-1 font-bold mb-2"
               >
-                  <span>Run testpool on Holesky</span>
+                  <span>Run a Pool</span>
               </a>
               <p className=" mt-4">...or <a className="underline" href="https://docs.frens.fun/docs/manifesto" target="_blank" rel="noopener noreferrer">read the docs</a> to get your feet wet 🏄!</p>
             </div>

@@ -132,14 +132,14 @@ function FeaturesAll() {
                 rel="noopener noreferrer"
                 className="w-full lg:w-auto py-3 px-8 lg:px-10 rounded-full text-[18px] text-white border-[1px] border-black bg-black mx-1 font-bold mb-2 mt-0 lg:mb-0"
             >
-                <span>Run testpool on Holesky</span>
+                <span>Run Pool</span>
             </a>
-            <button
+            {/* <button
                 className="w-full lg:w-auto py-3 px-8 lg:px-10 rounded-full text-[18px] text-[#3B53EF] bg-white border-[1px] border-[#3B53EF] mx-1 font-bold"
                 onClick={openWaitlistPopup}
             >
                Signup for Mainnet Waitlist 
-            </button>
+            </button> */}
         </div>
         <p className="mb-24 lg:mb-40">...or <a className="underline" href="https://docs.frens.fun/docs/manifesto" target="_blank" rel="noopener noreferrer">read the docs</a> to get your feet wet 🏄!</p>
     </div>
